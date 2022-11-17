@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import History from './components/History';
 import NavBar from './components/NavBar';
 import Stats from './components/Stats';
 import React from 'react'
@@ -11,6 +12,7 @@ export default function App() {
                 <NavBar />
                 <Routes>
                     <Route path='/' element={<Stats/>} />
+                    <Route path='history' element={<History/>} />
                 </Routes>
             </BrowserRouter>
         </div>
