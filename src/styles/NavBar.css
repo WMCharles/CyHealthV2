@@ -1,0 +1,18 @@
+.nav {
+    background-color: blue;
+    /* height: 60px; */
+}
+
+.nav-item {
+    line-height: 40px;
+}
+
+.nav-item a {
+    color: white;
+    margin-right: 1em;
+    font-size: 1em;
+}
+
+.nav-item a:hover {
+    color: white;
+}
