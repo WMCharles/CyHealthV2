@@ -1,6 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+export default function Statistics({ data }) {
 
-export default function Statistics({ data}) {
+    const navigate = useNavigate()
+
     return (
         <div>
             <table className='table table-striped'>
@@ -19,7 +23,7 @@ export default function Statistics({ data}) {
                 <tbody>
                     {data.map((item, index) =>
                         <tr key={index}>
-                            <td>{item.country}</td>
+                            <td onClick={() => navigate(`/statistics/${item.country}`)}><Link>{item.country}</Link></td>
                             <td>{item.cases.total}</td>
                             <td>{item.cases.new}</td>
                             <td>{item.deaths.total}</td>
