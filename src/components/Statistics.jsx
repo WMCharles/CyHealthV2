@@ -1,10 +1,8 @@
 import React from 'react'
-import Search from './Search'
 
-export default function Statistics({ data, setQuery}) {
+export default function Statistics({ data}) {
     return (
         <div>
-            <Search input={setQuery}/>
             <table className='table table-striped'>
                 <thead>
                     <tr>
