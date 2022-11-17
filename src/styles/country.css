@@ -1,0 +1,13 @@
+.country {
+    margin: 2em 0;
+}
+
+.intro {
+    margin: 2em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.intro span {
+    color: rgb(91, 179, 230);
+}
