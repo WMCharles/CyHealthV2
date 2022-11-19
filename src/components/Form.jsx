@@ -4,7 +4,7 @@ export default function Form({setSelectedOption, setDate, countries, continents}
     return (
         <form className="row g-3">
             <div className="col-md-4">
-                <label htmlFor="inputState" className="form-label">Select Continent</label>
+                <label htmlFor="inputState" className="form-label">Filter by Continent</label>
                 <select id="inputState" className="form-select" onChange={(e) => setSelectedOption(e.target.value)}>
                     {continents.map((cont, index) =>
                         <option key={index} value={cont}>{cont}</option>
@@ -12,7 +12,7 @@ export default function Form({setSelectedOption, setDate, countries, continents}
                 </select>
             </div>
             <div className="col-md-4">
-                <label htmlFor="inputState" className="form-label">Select Country</label>
+                <label htmlFor="inputState" className="form-label">Filter by Country</label>
                 <select id="inputState" className="form-select" onChange={(e) => setSelectedOption(e.target.value)}>
                     {countries.map((count, index) =>
                         <option key={index} value={count}>{count}</option>
@@ -20,7 +20,7 @@ export default function Form({setSelectedOption, setDate, countries, continents}
                 </select>
             </div>
             <div className="col-md-4">
-                <label htmlFor="exampleInputEmail1" className="form-label">Select Date</label>
+                <label htmlFor="dateInput" className="form-label">Filter by Date</label>
                 <input type="date" className="form-control" onChange={(e) => setDate(e.target.value)}></input>
             </div>
         </form>
