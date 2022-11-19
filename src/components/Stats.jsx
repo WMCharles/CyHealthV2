@@ -7,6 +7,7 @@ import Search from './Search'
 export default function Stats() {
 
     const [data, setData] = useState([])
+    const [filter, setFilter] = useState([])
     const [loading, setLoading] = useState(true)
 
     const options = {
@@ -22,9 +23,15 @@ export default function Stats() {
             .then(response => response.json())
             .then((response) => {
                 setData(response.response)
+                setFilter(response.response)
                 setLoading(false)
             })
     }, [])
+
+    const filterCountries = (continent) => {
+        const updatedList = data.filter((country) => country.continent === continent)
+        setFilter(updatedList)
+    }
 
     // search state 
     const [query, setQuery] = useState("")
@@ -34,12 +41,12 @@ export default function Stats() {
     const [recordsPerPage, setRecordsPerPage] = useState(19)
     const indexOfLastRecord = currentPage * recordsPerPage
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage
-    const currentRecords = data.filter((data) => data.country.toUpperCase().includes(query)).slice(indexOfFirstRecord, indexOfLastRecord)
-    const nPages = Math.ceil(data.length / recordsPerPage)
+    const currentRecords = filter.filter((data) => data.country.toUpperCase().includes(query)).slice(indexOfFirstRecord, indexOfLastRecord)
+    const nPages = Math.ceil(filter.length / recordsPerPage)
 
     return (
         <div>
-            <Search input={setQuery}/>
+            <Search input={setQuery} setFilter={setFilter} filterCountries={filterCountries} data={data}/>
             {loading ? <Loading /> : <Statistics data={currentRecords} setQuery={setQuery} />}
             <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
