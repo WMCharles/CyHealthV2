@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import Pagination from './Pagination'
 import Statistics from './Statistics'
@@ -31,6 +32,7 @@ export default function Stats() {
                 setFilter(response.response)
                 setLoading(false)
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const filterCountries = (continent) => {
