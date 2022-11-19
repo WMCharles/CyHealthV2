@@ -5,6 +5,12 @@ import Form from "./Form";
 import "../styles/History.css";
 
 export default function History() {
+
+  // setting page title
+  useEffect(() => {
+    document.title = "History";
+  }, []);
+
   const [numbers, setNumbers] = useState([]);
   const [countries, setCountries] = useState([]);
   const continents = [

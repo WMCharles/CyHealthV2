@@ -6,6 +6,11 @@ import Search from './Search'
 
 export default function Stats() {
 
+    // set page title
+    useEffect(() => {
+        document.title = "Statistics";
+    }, []);
+
     const [data, setData] = useState([])
     const [filter, setFilter] = useState([])
     const [loading, setLoading] = useState(true)
@@ -46,7 +51,7 @@ export default function Stats() {
 
     return (
         <div>
-            <Search input={setQuery} setFilter={setFilter} filterCountries={filterCountries} data={data}/>
+            <Search input={setQuery} setFilter={setFilter} filterCountries={filterCountries} data={data} />
             {loading ? <Loading /> : <Statistics data={currentRecords} setQuery={setQuery} />}
             <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
